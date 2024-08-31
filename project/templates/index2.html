@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start">Category</th>
+                <th class="text-end">Expense</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for expense in expenses %}
+                <tr>
+                    <td class="text-start">{{ expense.category}}</td>
+                    <td class="text-end">{{ expense.amount }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="3">Budget</td>
+                <td class="border-0 text-end">{{ amount }}</td>
+            </tr>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="3">Amount Left</td>
+                <td class="border-0 w-bold text-end">{{ left }}</td>
+            </tr>
+        </tfoot>
+    </table>
+
+{% endblock %}

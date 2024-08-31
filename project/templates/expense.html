@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Expense
+{% endblock %}
+
+{% block main %}
+<form action="/expense" method="post">
+    <div class="mb-3">
+        <select class="form-select mx-auto w-auto" name="budget">
+            <option disabled selected>Budget</option>
+            {% for budget in budgets %}
+                <option value="{{ budget.name }}">{{ budget.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <input autocomplete="off" class="form-control mx-auto w-auto" name="category" placeholder="Category" type="text">
+    </div>
+    <div class="mb-3">
+        <input autocomplete="off" class="form-control mx-auto w-auto" min="1" name="amount" placeholder="Amount" type="number">
+    </div>
+    <button class="btn btn-primary" type="submit">Add</button>
+</form>
+{% endblock %}
